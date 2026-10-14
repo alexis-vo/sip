@@ -26,6 +26,18 @@ class Card:
     def hide(self):
         self._hidden = True
 
+    def __str__(self):
+        if self._hidden == True: # alternative : if self._hidden
+            return "[██]"
+        # elif self._suit == 
+        if self._order == 1:
+            return "[A" + self._suit + "]"
+        if self._order <= 10:
+            return "[" + str(self._order) + self._suit + "]"
+        return "[" + ["J", "Q", "K"][self._order - 11] + self._suit + "]"
+
+    def __eq__(self, other):
+        return self._suit == other._suit and self._order == other._order
 
 
 if __name__ == "main":
